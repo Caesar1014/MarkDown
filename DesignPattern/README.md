@@ -9,6 +9,54 @@
 
 ### 1.1 关联
 关联关系是用一条直线表示的，它描述不同类的对象之间的结构关系，它是一种静态关系，通常与运行状态无关，一般由常识等因素决定的。它一般用来定义对象之间静态的、天然的结构，所以，关联关系是一种“强关联”的关系。
+比如，乘车人和车票之间就是一种关联关系，学生和学校就是一种关联关系，关联关系默认不强调方向，表示对象间相互知道。  
+![avatar](https://github.com/Caesar1014/MarkDown/blob/master/DesignPattern/src/%E5%85%B3%E8%81%94.png?raw=true)
+
+### 2.2 聚合
+聚合关系用于表示实体对象之间的关系，表示整体由部分构成的语义，例如一个部门由多个员工组成。与组合关系不同的是，整体和部分不是强依赖的，即使整体不存在了，部分仍然存在。例如，部门撤销了，人员不会消失，他们依然存在。
+```java
+public class Team
+{
+    private Employee employee;
+    public Team(Employee employee) {
+        this.employee = employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+    ...
+}
+
+public class Employee
+{
+    ...
+} 
+```
+
+### 2.3 组合
+与聚合关系一样，组合关系同样表示整体由部分构成的语义。比如公司由多个部门组成，但组合关系是一种强依赖的特殊聚合关系，如果整体不存在了，则部分也不存在了。例如，公司不存在了，部门也将不存在了。
+```java
+public class Company
+{
+    private Department department;
+    public Company() {
+        department = new Department();
+    }
+}
+
+publci class Department
+{
+    ...
+}
+```
+
+### 2.4 继承
+继承用一条带空心箭头的直接表示。
+
+### 2.5 实现
+实现关系用一条带空心箭头的虚线表示。
+
 
 ## 二、六大原则
 
